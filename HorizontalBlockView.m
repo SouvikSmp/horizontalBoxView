@@ -141,7 +141,7 @@
         UIView *ColoumView=[[UIView alloc] initWithFrame:CGRectMake(0, ([self Heightofcell]*i)+(i*[self setGap])+26.0f, [self ColoumWidth]-1, [self Heightofcell])];
         [ColoumView setTag:(100*(ColoumPostition+1))+i];
         
-        [ColoumView setAlpha:.07f];
+        [ColoumView setAlpha:.1f];
         if (isTaparow)
         {
             if (i==Rowrecentposition)
@@ -190,9 +190,10 @@
                 [mainView addSubview:textField];
                 [textField setKeyboardAppearance:UIKeyboardAppearanceDefault];
                 [textField setTag:(3000*(ColoumPostition+1))+i];
+                [textField setText:@"ME"];
                 textField.delegate=self;
-                UILabel *Exponentlbl=[[UILabel alloc] initWithFrame:CGRectMake([self ColoumWidth]-32, 8, 16, 16)];
-                Exponentlbl.text=@"1";
+                UILabel *Exponentlbl=[[UILabel alloc] initWithFrame:CGRectMake([self ColoumWidth]-38, 4, 16, 16)];
+                Exponentlbl.text=@"S";
                 Exponentlbl.font=[UIFont fontWithName:@"Armata-Regular" size:15.0f];
                 Exponentlbl.textAlignment=NSTextAlignmentCenter;
                 Exponentlbl.textColor=[UIColor whiteColor];
@@ -497,7 +498,7 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     NSInteger coloumno=(textField.tag-Rowrecentposition)/3000-1;
-    if (_delegate)
+    if ([_delegate respondsToSelector:@selector(BlockView:didselectacoloumat:androw:)])
     {
         [_delegate BlockView:self didselectacoloumat:coloumno androw:Rowrecentposition];
     }

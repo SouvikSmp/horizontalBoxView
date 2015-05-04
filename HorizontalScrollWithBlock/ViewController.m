@@ -43,10 +43,11 @@
 }
 -(NSInteger)SetNumborofRowToBlockView:(HorizontalBlockView *)HorizontalView
 {
-    return 6;
+    return 10;
 }
 
--(UIView *)BlockView:(HorizontalBlockView *)HorizontalView Viewforindex:(NSInteger)Index Defauldview:(UIView *)Defauldview{
+-(UIView *)BlockView:(HorizontalBlockView *)HorizontalView Viewforindex:(NSInteger)Index Defauldview:(UIView *)Defauldview
+{
     
     return Defauldview;
 }
@@ -68,5 +69,9 @@
     return 1;
 }
 
+-(void)BlockView:(HorizontalBlockView *)HorizontalView didselectacoloumat:(NSInteger)ColumNumber androw:(NSInteger)Rownumber
+{
+    NSLog(@"The value of coloum and row:%ld and %ld",ColumNumber,Rownumber);
+}
 
 @end
